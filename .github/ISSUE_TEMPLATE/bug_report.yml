@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a bug.
+title: "bug: "
+labels: [bug]
+
+body:
+- type: markdown
+  attributes:
+    value: >
+      Thank you for taking the time to file a bug report. Before creating a new
+      issue, please make sure to take a few minutes to check the issue tracker
+      for existing issues about the bug.
+    
+- type: textarea
+  attributes: 
+    label: Describe the issue
+  validations:
+    required: true
+
+- type: markdown
+  attributes:
+    label: Steps to reproduce the bug
+    description: >
+      A list of steps to reproduce the bug.
+    placeholder: |
+    render: python
+  validations:
+    required: true
+  
+- type: textarea
+  attributes:
+    label: Python and memory.journal versions
+    description: >
+      Output from `import sys, memoryjournal; print(memoryjournal.__version__); print(sys.version)`.
+  validations:
+    required: true
