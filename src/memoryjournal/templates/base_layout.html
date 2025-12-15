@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{% block title%}{% endblock %} - memory.journal</title>
+	</head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<nav>
+		<h1>memory.journal</h1>
+		<blockquote>
+			{% block quote %}{% endblock %}
+		</blockquote>
+		<hr>
+		<ul>
+			{% if g.journal %}
+				<li><span>{{ g.journal["journalname"] }}</span>
+				<li><a href="{{ url_for('auth.close_journal') }}">Close journal</a>	
+			{% else %}
+				<li><a href="{{ url_for('auth.add_journal') }}">Add new journal</a>
+				<li><a href="{{ url_for('auth.open_journal') }}">Open a journal</a>
+			{% endif %}
+		</ul>
+	</nav>
+	<section class="content">
+		{% for message in get_flashed_messages() %}
+			<div class="flash">{{ message}}</div>
+		{% endfor %}
+		{% block content %}{% endblock %}
+	</section>
+</html>

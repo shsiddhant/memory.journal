@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("./AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("./AtkinsonHyperlegibleNext-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("./AtkinsonHyperlegibleNext-RegularItalic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold Italic */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("./AtkinsonHyperlegibleNext-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* --------------------------------- Monospace ---------------------------------- */
+
+/* Regular */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Mono";
+    src: url("../fonts/AtkinsonHyperlegibleMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Mono";
+    src: url("../fonts/AtkinsonHyperlegibleMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Mono";
+    src: url("../fonts/AtkinsonHyperlegibleMono-RegularItalic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold Italic */
+
+@font-face {
+    font-family: "Atkinson Hyperlegible Mono";
+    src: url("../fonts/AtkinsonHyperlegibleMono-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* ----------------------------- Apply fonts globally -------------------------------------- */
+
+html {
+    font-family: "Atkinson Hyperlegible Next", sans-serif;
+    font-family: "Atkinson Hyperlegible Next", sans-serif;
+}
+
+body {
+    max-width: 90%; margin: 0 auto; background: white;
+    --bs-font-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
+}
+/*nav { background: white	; display: flex; align-items: center; padding: 0 0.5rem; }*/
+nav h1 { color: #B40B08; flex: auto; margin: 2rem 0; }
+nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
+nav h2 { flex: auto; margin: 0; }
+nav h2 a { text-decoration: none; padding: 0.25rem 0.5rem; }
+nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
+nav ul li a, nav ul li span, header .action { text-decoration: none;  display: block; padding: 1rem; }
+a { text-decoration: none; color: #085D6C; }
+.content { padding: 0 1rem 1rem; }
+.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; }
+.content > header h1 { flex: auto; margin: 3rem 0 0.25rem 0; }
+.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
+
+.primarycolor {
+    color:#B40B08;
+}
+.markdown h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.markdown h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.markdown h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.markdown h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.markdown h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}

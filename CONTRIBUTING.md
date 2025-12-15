@@ -96,19 +96,6 @@ Push your changes to remote.
 git push origin your-new-branch
 ```
 
-### Linting
-
-
-
-### Run Tests
-
-Add new `pytest` tests in the `tests` directory, based on your changes and run the tests either using `uv` or directly.
-
-```shell
-uv run pytest
-# Or
-pytest
-```
 
 ### Open a merge request
 

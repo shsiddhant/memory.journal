@@ -1,0 +1,79 @@
+<!doctype html>
+{% extends "journal/index.html" %}
+{% block title %}Timeline - {{ super() }}{% endblock %}
+{% block quote %}
+<i>
+  "This is it, Joel. It's going to be gone soon."<br>
+  "I know."<br>
+  "What do we do?"<br>
+  "Enjoy it."<br>
+</i>
+{% endblock %}
+{% block content %}
+<header class="d-flex flex-wrap justify-content-center pb-3 mb-4 border-bottom border-2 bg-white">
+	<a class="fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto fw-bold text-dark text-decoration-none"
+		href="{{ url_for('journal.index') }}">
+		<span>{{ g.journal["journalname"] }}</span>
+	</a>
+		 	<ul class="nav mb-auto">
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.index') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">dashboard</i> Overview
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link active link-danger" href="{{ url_for('journal.list_memories') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">view_timeline</i> Timeline
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.add_memory') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">add_box</i> Add memory
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('auth.close_journal') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.settings') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">settings</i> Settings
+		 			</a>
+		 		</li>
+		 	</ul>
+</header>
+<div class="fw-bold fs-5 py-3">Timeline</div>
+		 <form method="get" action="" class="row g-3">
+		   <div class="col-auto">
+		     <label for="from" class="fw-bold form-label">From</label>
+		     <input type="date" class="form-control" id="from" name="from" value="{{ from_date_current }}">
+		   </div>
+		   <div class="col-auto">
+		     <label for="to" class="fw-bold form-label">To</label>
+		     <input type="date" class="form-control" id="to" name="to" value="{{ to_date_current }}">
+		   </div>
+		   <div class="col-5">
+		     <label for="tags" class="fw-bold form-label">Tags</label>
+		     <input type="text" class="form-control" id="tags" name="tags" value="{{ tags_filter_current }}">
+		   </div>
+		   <div class="col-12">
+		     <button type="submit" class="btn btn-primary">Filter</button>
+		   </div>
+		   <div class="col-12">
+		     <a type="action" class="btn btn-secondary" href="{{ url_for('journal.list_memories') }}">Reset filters</a>
+		   </div>
+		 </form>
+	 </div>
+</div>
+<hr>
+{% for memory in timeline %}
+	{% if memory['year'] %}
+	<div class="fs-3 fw-bold mb-2">{{ memory['year'] }}</div>
+	{% endif %}
+  {% if memory['month'] %}
+    <div class="fs-5 fw-bold mb-2">{{ memory['month'] }}</div>
+  {% endif %}
+  <b><a href="{{ url_for('journal.view_memory', id=memory['id']) }}">{{ memory['date'] }}</b> - {{ memory['title'] }}</a><br><br>
+{% endfor %}<br>
+{% endblock %}

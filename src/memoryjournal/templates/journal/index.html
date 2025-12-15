@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- Journal Overview -->
+{% extends "base.html" %}
+{% block title %}{{ g.journal["journalname"] }}{% endblock %}
+{% block quote %}
+<i>
+	"Joely? What if you stayed this time?"<br>
+	"I walked out the door. There's no memory left."
+</i>
+{% endblock %}
+{% block content %}
+<header class="d-flex flex-wrap justify-content-center pb-3 mb-4 border-bottom border-2 bg-white">
+	<a class="fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto fw-bold text-dark text-decoration-none"
+		href="{{ url_for('journal.index') }}">
+		<span>{{ g.journal["journalname"] }}</span>
+	</a>
+		 	<ul class="nav mb-auto">
+		 		<li class="nav-item">
+		 			<a class="nav-link link-danger" href="{{ url_for('journal.index') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">dashboard</i> Overview
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.list_memories') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">view_timeline</i> Timeline
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.add_memory') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">add_box</i> Add memory
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('auth.close_journal') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link link-dark" href="{{ url_for('journal.settings') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">settings</i> Settings
+		 			</a>
+		 		</li>
+		 	</ul>
+</header>
+{% if count != 1 %}
+	<a class="fw-bold action fs-5" href="{{ url_for('journal.list_memories') }}">{{ count }} Memories</a>
+{% else %}
+	<a class="action fw-bold fs-5" href="{{ url_for('journal.list_memories') }}">{{ count }} Memory</a>
+{% endif %}
+<div class="row my-2 py-2">
+{% if newest %}
+	<div class="fs-5 fw-bold my-2">Newest</div>
+	<a class="fs-6 mb-2" href="{{ url_for('journal.view_memory', id=newest['id']) }}">
+		{{ newest["memorydate"].strftime('%a, %d %B %Y') }} - {{ newest["title"] }}
+	</a>
+{% endif %}
+{% if count > 1 and oldest %}
+	<div class="fs-5 fw-bold my-2">Oldest</div>
+	<a class="fs-6" href="{{ url_for('journal.view_memory', id=oldest['id']) }}">
+		{{ oldest["memorydate"].strftime('%a, %d %B %Y') }} - {{ oldest["title"] }}
+	</a>
+</div>
+{% endif %}
+{% endblock %}
