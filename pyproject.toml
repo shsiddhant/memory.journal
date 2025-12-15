@@ -9,6 +9,7 @@ dependencies = [
     "flask>=3.1.2",
     "flask-wtf>=1.2.2",
     "markdown>=3.10",
+    "platformdirs>=4.5.1",
     "typer>=0.20.0",
 ]
 requires-python = ">=3.11"

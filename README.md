@@ -34,8 +34,15 @@ directly from the repository with pip.
 $ pip install "memory.journal @ git+https://github.com/shsiddhant/memory.journal.git"
 ```
 
+```shell
+$ export FLASK_APP=memoryjournal
+$ flask --app memoryjournal init-db # Initiate Database for first use
+$ flask run --host=0.0.0.0 # Run the app
+```
+
 ## Roadmap
 
+- [ ] User friendly installation and use.
 - [ ] Media attachments
 - [ ] Export to PDF and DayOne/Journey.cloud formats
 - [ ] Markdown preview while adding/editing memories

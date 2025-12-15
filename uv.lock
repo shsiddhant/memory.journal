@@ -540,6 +540,7 @@ dependencies = [
     { name = "flask" },
     { name = "flask-wtf" },
     { name = "markdown" },
+    { name = "platformdirs" },
     { name = "typer" },
 ]
 
@@ -566,6 +567,7 @@ requires-dist = [
     { name = "markdown", specifier = ">=3.10" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.18.2" },
     { name = "numpydoc", marker = "extra == 'doc'", specifier = ">=1.9.0" },
+    { name = "platformdirs", specifier = ">=4.5.1" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.3.0" },
     { name = "pydata-sphinx-theme", marker = "extra == 'doc'", specifier = ">=0.16.1" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.4.2" },
