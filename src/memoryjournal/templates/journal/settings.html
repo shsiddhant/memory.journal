@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Journal Settings -->
-{% extends "base.html" %}
-{% block title %}Settings - {{ g.journal["journalname"] }}{% endblock %}
+{% extends "journal/index.html" %}
+{% block title %}Settings - {{ super() }}{% endblock %}
 {% block quote %}
 <i>
 	"Okay."<br>
