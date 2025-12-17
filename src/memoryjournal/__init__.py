@@ -40,10 +40,4 @@ def create_app(testconfig: Mapping | None = None):
         journals = dba.execute("SELECT id, journalname FROM journal").fetchall()
         return {"journals": journals}
 
-    #        return {
-    #            "journalnames": dba.execute(
-    #                "SELECT journalname FROM journal"
-    #            ).fetchall()
-    #        }
-
     return app

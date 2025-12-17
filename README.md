@@ -31,13 +31,11 @@ The package should soon be available on PyPI. For now, you can install
 directly from the repository with pip. 
 
 ```shell
-$ pip install "memory.journal @ git+https://github.com/shsiddhant/memory.journal.git"
+pip install "memory.journal @ git+https://github.com/shsiddhant/memory.journal.git"
 ```
 
 ```shell
-$ export FLASK_APP=memoryjournal
-$ flask --app memoryjournal init-db # Initiate Database for first use
-$ flask run --host=0.0.0.0 # Run the app
+memoryjournal # Run the app
 ```
 
 ## Roadmap
