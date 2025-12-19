@@ -8,53 +8,61 @@
 </i>
 {% endblock %}
 {% block content %}
-<header class="d-flex flex-wrap pb-3 mb-4 border-bottom border-2 bg-white">
-	<ul class="nav mb-auto">
-		<li class="nav-item">
-			<a class="nav-link link-dark" href="{{ url_for('index') }}">
-				<i class="material-icons d-inline-block align-text-bottom">home</i>Home
-			</a>
+<nav class="navbar navbar-expand navbar-light bg-white rounded border-bottom mb-2">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="journalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-md-end" id="mainNavbar">
+		 	<ul class="navbar-nav mb-auto mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link " href="{{ url_for('index') }}">
+						<i class="material-icons d-inline-block align-text-bottom">home</i>Home
+					</a>
+				</li>
 	{% if not g.journal %}
 			<li class="nav-item">
-				<a class="nav-link link-danger" href="{{ url_for('auth.add_journal') }}">
+				<a class="nav-link active" href="{{ url_for('auth.add_journal') }}">
 					<i class="material-icons d-inline-block align-text-bottom">book</i> New Journal
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link link-dark" href="{{ url_for('auth.open_journal') }}">
+				<a class="nav-link" href="{{ url_for('auth.open_journal') }}">
 					<i class="material-icons d-inline-block align-text-bottom">menu_book</i> Open a journal
 				</a>
 			</li>
 	{% else %}
 			<li class="nav-item">
-				<a class="nav-link link-dark" href="{{ url_for('journal.index') }}">
+				<a class="nav-link" href="{{ url_for('journal.index') }}">
 					<i class="material-icons d-inline-block align-text-bottom">menu_book</i>
 					Currently Open: {{ g.journal["journalname"] }}
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link link-dark" href="{{ url_for('auth.close_journal') }}">
+				<a class="nav-link" href="{{ url_for('auth.close_journal') }}">
 					<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
 				</a>
 			</li>
 	{% endif %}
 		</ul>
-</header>
+		</div>
+	</div>
+</nav>
 <div class="fs-4 fw-bold py-2 mb-3">Create New Journal</div>
 <form method="post" autocomplete="off">
-	<div class="row g-3 mb-2">
-		<div class="col-md-2">
+	<div class="row g-3 mb-3">
+		<div class="col-12 col-md-4">
 			<label for="journalname" class="fw-bold form-label">Journal Name</label>
 			<input id="journalname" name="journalname" class="form-control" required>
 		</div>
 	</div>
-	<div class="row g-3 my-2">
-		<div class="col-md-2">
+	<div class="row g-3 mb-3">
+		<div class="col-12 col-md-4">
 			<label for="password" class="fw-bold form-label">Password</label>
 			<input type="password", id="password" name="password" class="form-control" autocomplete="off" required>
 		</div>
 	</div>
-	<div class="row g-3 my-2">
+	<div class="row g-3 mt-2">
 		<div class="col-12">
 			<button type="submit" class="btn btn-primary">Create</button>
 		</div>

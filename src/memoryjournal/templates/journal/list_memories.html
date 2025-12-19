@@ -10,54 +10,61 @@
 </i>
 {% endblock %}
 {% block content %}
-<header class="d-flex flex-wrap justify-content-center pb-3 mb-4 border-bottom border-2 bg-white">
-	<a class="fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto fw-bold text-dark text-decoration-none"
-		href="{{ url_for('journal.index') }}">
-		<span>{{ g.journal["journalname"] }}</span>
-	</a>
-		 	<ul class="nav mb-auto">
+<nav class="navbar navbar-expand-md navbar-light bg-white rounded border-bottom mb-2">
+	<div class="container-fluid">
+		<a class="navbar-brand fs-4 fw-bold text-dark text-decoration-none"
+			href="{{ url_for('journal.index') }}">
+			<span>{{ g.journal["journalname"] }}</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#journalNavbar" aria-controls="journalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-md-end" id="journalNavbar">
+		 	<ul class="navbar-nav mb-auto mb-lg-0">
 		 		<li class="nav-item">
-		 			<a class="nav-link link-dark" href="{{ url_for('journal.index') }}">
+		 			<a class="nav-link" href="{{ url_for('journal.index') }}">
 		 				<i class="material-icons d-inline-block align-text-bottom">dashboard</i> Overview
 		 			</a>
 		 		</li>
 		 		<li class="nav-item">
-		 			<a class="nav-link active link-danger" href="{{ url_for('journal.list_memories') }}">
+		 			<a class="nav-link active" href="{{ url_for('journal.list_memories') }}">
 		 				<i class="material-icons d-inline-block align-text-bottom">view_timeline</i> Timeline
 		 			</a>
 		 		</li>
 		 		<li class="nav-item">
-		 			<a class="nav-link link-dark" href="{{ url_for('journal.add_memory') }}">
+		 			<a class="nav-link" href="{{ url_for('journal.add_memory') }}">
 		 				<i class="material-icons d-inline-block align-text-bottom">add_box</i> Add memory
 		 			</a>
 		 		</li>
 		 		<li class="nav-item">
-		 			<a class="nav-link link-dark" href="{{ url_for('auth.close_journal') }}">
+		 			<a class="nav-link" href="{{ url_for('auth.close_journal') }}">
 		 				<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
 		 			</a>
 		 		</li>
 		 		<li class="nav-item">
-		 			<a class="nav-link link-dark" href="{{ url_for('journal.settings') }}">
+		 			<a class="nav-link" href="{{ url_for('journal.settings') }}">
 		 				<i class="material-icons d-inline-block align-text-bottom">settings</i> Settings
 		 			</a>
 		 		</li>
 		 	</ul>
-</header>
+		</div>
+	</div>
+</nav>
 <div class="fw-bold fs-5 py-3">Timeline</div>
 		 <form method="get" action="" class="row g-3">
-		   <div class="col-auto">
+		   <div class="col-8 col-md-2">
 		     <label for="from" class="fw-bold form-label">From</label>
 		     <input type="date" class="form-control" id="from" name="from" value="{{ from_date_current }}">
 		   </div>
-		   <div class="col-auto">
+		   <div class="col-8 col-md-2">
 		     <label for="to" class="fw-bold form-label">To</label>
 		     <input type="date" class="form-control" id="to" name="to" value="{{ to_date_current }}">
 		   </div>
-		   <div class="col-5">
+		   <div class="col-12 col-md-6 mb-2">
 		     <label for="tags" class="fw-bold form-label">Tags</label>
 		     <input type="text" class="form-control" id="tags" name="tags" value="{{ tags_filter_current }}">
 		   </div>
-		   <div class="col-12">
+		   <div class="col-12 mb-2">
 		     <button type="submit" class="btn btn-primary">Filter</button>
 		   </div>
 		   <div class="col-12">

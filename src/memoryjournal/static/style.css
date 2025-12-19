@@ -92,6 +92,15 @@ body {
     --bs-font-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
 }
 /*nav { background: white	; display: flex; align-items: center; padding: 0 0.5rem; }*/
+.navbar-nav .nav-item .nav-link {
+    color: var(--bs-dark);
+}
+.navbar-nav .nav-item .active {
+    color: var(--bs-danger) !important;
+}
+.active {
+    color: var(--bs-danger) !important;
+}
 nav h1 { color: #B40B08; flex: auto; margin: 2rem 0; }
 nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
 nav h2 { flex: auto; margin: 0; }

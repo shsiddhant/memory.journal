@@ -7,60 +7,69 @@
 </i>
 {% endblock %}
 {% block content %}
-<header class="d-flex flex-wrap justify-content-center pb-3 mb-4 border-bottom border-2 bg-white">
-	<a class="fs-4 d-flex align-items-center mb-3 mb-md-0 me-md-auto fw-bold text-dark text-decoration-none"
-		href="{{ url_for('journal.index') }}">
-		<span>{{ g.journal["journalname"] }}</span>
-	</a>
-	<ul class="nav mb-auto">
- 		<li class="nav-item">
- 			<a class="nav-link link-dark" href="{{ url_for('journal.index') }}">
- 				<i class="material-icons d-inline-block align-text-bottom">dashboard</i> Overview
- 			</a>
- 		</li>
- 		<li class="nav-item">
- 			<a class="nav-link link-dark" href="{{ url_for('journal.list_memories') }}">
- 				<i class="material-icons d-inline-block align-text-bottom">view_timeline</i> Timeline
- 			</a>
- 		</li>
- 		<li class="nav-item">
- 			<a class="nav-link link-danger" href="{{ url_for('journal.add_memory') }}">
- 				<i class="material-icons d-inline-block align-text-bottom">add_box</i> Add memory
- 			</a>
- 		</li>
- 		<li class="nav-item">
- 			<a class="nav-link link-dark" href="{{ url_for('auth.close_journal') }}">
- 				<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
- 			</a>
- 		</li>
- 		<li class="nav-item">
- 			<a class="nav-link link-dark" href="{{ url_for('journal.settings') }}">
- 				<i class="material-icons d-inline-block align-text-bottom">settings</i> Settings
- 			</a>
- 		</li>
- 	</ul>
-</header>
-<a class="fw-bold text-dark fs-5 py-3 mb-4">Add Memory</a>
+<nav class="navbar navbar-expand-md navbar-light bg-white rounded border-bottom mb-2">
+	<div class="container-fluid">
+		<a class="navbar-brand fs-4 fw-bold text-dark text-decoration-none"
+			href="{{ url_for('journal.index') }}">
+			<span>{{ g.journal["journalname"] }}</span>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#journalNavbar" aria-controls="journalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-md-end" id="journalNavbar">
+		 	<ul class="navbar-nav mb-auto mb-lg-0">
+		 		<li class="nav-item">
+		 			<a class="nav-link" href="{{ url_for('journal.index') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">dashboard</i> Overview
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link" href="{{ url_for('journal.list_memories') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">view_timeline</i> Timeline
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link active" href="{{ url_for('journal.add_memory') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">add_box</i> Add memory
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link" href="{{ url_for('auth.close_journal') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">cancel</i> Close Journal
+		 			</a>
+		 		</li>
+		 		<li class="nav-item">
+		 			<a class="nav-link" href="{{ url_for('journal.settings') }}">
+		 				<i class="material-icons d-inline-block align-text-bottom">settings</i> Settings
+		 			</a>
+		 		</li>
+		 	</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid pt-3">
+<a class="fw-bold text-dark fs-5 py-3">Add Memory</a>
 <form method="post" class="row g-3 my-2" autocomplete="off">
-	<div class="col-md-2 mb-2">
+	<div class="col-12 col-md-2 mb-2">
 		<label for="memorydate" class="fw-bold form-label">Date</label>
 		<input type="date" class="form-control" id="memorydate" name="memorydate" value="{{ request.form['memorydate'] }}" required>
 	</div>
-	<div class="col-md-4">
+	<div class="col-12 col-md-4">
 		<label for="title" class="fw-bold form-label">Title</label>
 		<input type="text" class="form-control" id="title" name="title" placeholder="Enter a title." value="{{ request.form['title'] }}" required>
 	</div>
-	<div class="col-10">
+	<div class="col-12 col-md-10">
 		<label for="body" class="fw-bold form-label">Description</label>
 		<textarea class="form-control" id="body" name="body" rows="15" placeholder="Markdown is supported." required>{{ request.form['body'] }}</textarea>
 	</div>
-	<div class="col-6">
+	<div class="col-12 col-md-6">
 		<label for="tags" class="fw-bold form-label">Tags</label>
 		<input type="text" class="form-control" id="tags" name="tags" placeholder="Comma separated tags." value="{{ request.form['tags'] }}">
 	</div>
-	<div class="col-12">
+	<div class="col-12 mt-4">
 		<button type="submit" class="btn btn-primary">Add memory</button>
 	</div>
 	<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 </form>
+</div>
 {% endblock %}
