@@ -16,18 +16,18 @@
 		 	<ul class="navbar-nav mb-auto mb-lg-0">
 				<li class="nav-item">
 					<a class="nav-link active" href="{{ url_for('index') }}">
-						<i class="material-icons d-inline-block align-text-bottom active">home</i><br>Home
+						<i class="material-icons d-inline-block align-text-bottom active">home</i> Home
 					</a>
 				</li>
 	{% if not g.journal %}
 			<li class="nav-item">
 				<a class="nav-link" href="{{ url_for('auth.add_journal') }}">
-					<i class="material-icons d-inline-block align-text-bottom">book</i><br> New Journal
+					<i class="material-icons d-inline-block align-text-bottom">book</i> New Journal
 				</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{ url_for('auth.open_journal') }}">
-					<i class="material-icons d-inline-block align-text-bottom">menu_book</i><br> Open a journal
+					<i class="material-icons d-inline-block align-text-bottom">menu_book</i> Open a journal
 				</a>
 			</li>
 	{% else %}
