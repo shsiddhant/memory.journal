@@ -1,14 +1,18 @@
 # memory.journal
 
 [![Python](https://img.shields.io/badge/python-3.11%2B-4B8BBE?style=for-the-badge&logo=python&logoColor=%23FFE873)](https://www.python.org/)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 [![LICENSE: MIT](https://img.shields.io/badge/LICENSE-MIT-green?style=for-the-badge)](LICENSE)
 
-A simple and lightweight journaling app.
+A lightweight, offline-first journaling app focused on privacy, simplicity, and long-term memory keeping.
+
+*memory.journal* lets you jot down moments from any point in your life, be it today, or years ago. Every memory has its own date, separate from when you decide to write it down, helping you build your own little box of memories.
 
 
 ## Table of Contents
 
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Roadmap](#roadmap)
 - [Development](#development)
@@ -18,17 +22,34 @@ A simple and lightweight journaling app.
 ## Features
 
 - Simple and easy to use interface.
-- Unlimited number of journals.
-- Password protection to keep memories safe.
-- Unlimited number of entries/memories.
-- Markdown support for formatting entries/memories.
-- Runs offline and keeps your journals private.
+- Password protection for journals to keep memories safe.
+- Markdown support for memories.
+- Separate memory date from writing date.
+- Export your journals to JSON format.
 
+## Screenshots
+
+### Home Page
+
+<img src="screenshots/home.jpeg" width="600px" alt="Home Page" />
+
+### Journal Overview
+
+<img src="screenshots/overview.jpeg" width="600px" alt="Journal Overview" />
+
+### Add Memory
+
+<img src="screenshots/add_memory.jpeg" width="600px" alt="Add Memory" />
+
+### View Memory
+
+<img src="screenshots/view_memory.jpeg" width="600px" alt="View Memory" />
+
+### Timeline View
+
+<img src="screenshots/timeline.jpeg" width="600px" alt="Timeline View" />
 
 ## Installation
-
-The package should soon be available on PyPI. For now, you can install 
-directly from the repository with pip. 
 
 ```shell
 pip install "memory.journal @ git+https://github.com/shsiddhant/memory.journal.git"
@@ -38,8 +59,11 @@ pip install "memory.journal @ git+https://github.com/shsiddhant/memory.journal.g
 memoryjournal # Run the app
 ```
 
+You can now access the app on http://localhost:5000/
+
 ## Roadmap
 
+- [x] Export to JSON
 - [ ] User friendly installation and use.
 - [ ] Media attachments
 - [ ] Export to PDF and DayOne/Journey.cloud formats
@@ -47,9 +71,6 @@ memoryjournal # Run the app
 - Markdown extensions (https://facelessuser.github.io/pymdown-extensions/)
     - [ ] strikethrough
     - [ ] highlight
-    - [ ] checklists
-    - [ ] syntax highlighting
-    - [ ] LaTeX
 
 ## Development
 

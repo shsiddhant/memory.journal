@@ -1,4 +1,7 @@
 from __future__ import annotations
+from datetime import datetime
+import io
+import json
 
 from flask import (
     Blueprint,
@@ -7,12 +10,14 @@ from flask import (
     redirect,
     render_template,
     request,
+    send_file,
     url_for,
     #    session,
 )
 import markdown
 from memoryjournal.auth import open_journal_required
 from memoryjournal.db import get_db
+from memoryjournal.util import export_journal
 
 bp = Blueprint("journal", __name__, url_prefix="/journal/")
 
@@ -359,3 +364,33 @@ def settings():
         if request.form.get("password"):
             return redirect(url_for("auth.delete_journal"))
     return render_template("journal/settings.html")
+
+
+@bp.route("/export_json", methods=("GET",))
+@open_journal_required
+def export_json():
+    db = get_db()
+    try:
+        export_data = export_journal(db, g.journal["id"])
+        if isinstance(export_data, dict) and "journalname" in export_data:
+            name = export_data["journalname"]
+            bytes_data = json.dumps(
+                export_data,
+                indent=2,
+                ensure_ascii=False,
+                default=lambda x: x.isoformat() if isinstance(x, datetime) else str(x),
+                ).encode("utf-8")
+            buffer = io.BytesIO(bytes_data)
+            buffer.seek(0)
+            return send_file(
+                buffer,
+                mimetype="application/json",
+                as_attachment=True,
+                download_name=f"{name}.json",
+            )
+        else:
+            flash("Error: Journal not found.", "error")
+            return redirect(url_for("journal.index"))
+    except Exception as e:
+        flash(f"Error: {e}", "error")
+        return redirect(url_for("journal.index"))
